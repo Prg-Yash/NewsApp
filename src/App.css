@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+.label {
+  width:70px;
+  height:30px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+  cursor: pointer;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.label:after {
+  content: "";
+  width:30px;
+  height: 50px;
+  position: absolute;
+  top:10px ;
+  left:10px;
+  background: linear-gradient(180deg,#ffcc89,#d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inp {
+  width: 0;
+  height: 0;
+  visibility: hidden;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.inp:checked + .label {
+  background: #242424;
 }
-
-.App-link {
-  color: #61dafb;
+.inp:checked + .label:after {
+  left:10px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.label,.label:after {
+  transition: 0.3s
+}
+.inp:checked + .label + .background {
+  background:#242424;
 }
